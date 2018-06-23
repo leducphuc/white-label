@@ -66,7 +66,6 @@ export class EditProfile extends Component {
 
   handleChange = (field, value) => {
     this.setState({ [field]: value }, () => {
-      console.log(field, value);
       this.props.validate(field);
     });
   }
@@ -83,6 +82,21 @@ export class EditProfile extends Component {
     }
     this.setState({ dob: newValue }, () => this.props.validate('dob'));
   }
+
+  renderDatePickerInput = (props, openCalendar) => {
+    const { dob } = this.state;
+    return (
+      <TextField
+        required
+        label="Birthday"
+        value={dob}
+        margin="normal"
+        onFocus={openCalendar}
+        onBlur={(e) => this.handleChange('address', e.target.value)}
+      />
+    )
+  }
+
   render() {
     const { onClose, classes, open, userDetail } = this.props;
     const { accountNo, customerId } = userDetail;
@@ -102,50 +116,46 @@ export class EditProfile extends Component {
           </Typography>
           <div className="edit-form">
             <TextField
-              requied="true"
+              required
               label="Full Name"
               margin="normal"
               defaultValue={fullName}
               onBlur={(e) => this.handleChange('fullName', e.target.value)}
             />
-            {/* <TextField
-              requied
-              label="dob"
-              margin="normal"
-              onBlur={(e) => this.handleChange()}
-            /> */}
             <div className={classes.datepickerContainer}>
               <Datetime
                 value={dob}
                 dateFormat="DD/MM/YYYY"
                 timeFormat={false}
+                renderInput={this.renderDatePickerInput}
                 inputProps={{
                   onChange: (e) => this.handleDateChange(e)
                 }}
               />
             </div>
             <TextField
+              required
               label="Current Residence"
               margin="normal"
               defaultValue={address}
               onBlur={(e) => this.handleChange('address', e.target.value)}
             />
             <TextField
-              requied
+              required
               label="Email"
               margin="normal"
               defaultValue={email}
               onBlur={(e) => this.handleChange('email', e.target.value)}
             />
             <TextField
-              requied
+              required
               label="Phone Number"
               margin="normal"
               defaultValue={telephone}
               onBlur={(e) => this.handleChange('telephone', e.target.value)}
             />
             <TextField
-              requied
+              required
               label="Partner Acount"
               margin="normal"
               defaultValue={partnerAccount}
