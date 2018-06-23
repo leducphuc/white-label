@@ -1,0 +1,33 @@
+.user-list-container {
+  margin-top: 100px;
+  overflow-x: auto;
+  .filter-container {
+    text-align: center;
+    font-size: 16px;
+    .search-label {
+      display: flex;
+      align-items: center;
+    }
+    .filter-input {
+      margin-right: 10px;
+    }
+  }
+  .userListTable {
+    min-width: 700px;
+    .full-name {
+      min-width: 100px;
+      max-width: 150px
+    }
+    .blank-table {
+      text-align: center;
+      display: flex;
+    }
+  }
+  th {
+    text-align: left;
+  }
+}
+
+.clicked-item {
+  background: #70efde;
+}

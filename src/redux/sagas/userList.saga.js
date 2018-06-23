@@ -6,14 +6,17 @@ import {
 import { getHeaders } from '../../utils';
 import { fetchAction } from './saga.common';
 
+import mockData from './mockdata';
+
 export function* fetchUserList({ filter, page, size, callback }) {
+  console.log('fetch user');
   const config = {
     method: 'GET',
     headers: getHeaders(),
   };
 
   const filterParams = () => {
-    let filterString = `page=${page || 1}&size=${size || 100}`;
+    let filterString = `page=${page}&size=${size}`;
     for (const key in filter) {
       const filterValue = filter[key] ? `&${key}=${filter[key]}` : '';
       filterString += filterValue;
@@ -22,11 +25,9 @@ export function* fetchUserList({ filter, page, size, callback }) {
   };
 
   const url = `${CUSTOMER_API}/foreign/subAccounts?${filterParams()}`
-  const result = yield call(fetchAction, userList, url, config, callback);
-  if (result.error) {
-  } else if (result.response.length === 0) {
-  } else {
-  }
+  // yield call(fetchAction, userList, url, config, callback);
+  yield put(userList.success(mockData));
+
 }
 
 /* FUNCTIONAL */

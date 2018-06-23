@@ -18,3 +18,8 @@ export {
   userCrud,
   USER_CRUD
 } from './userCrud.action';
+
+export {
+  dialogPopup,
+  DIALOG_POPUP
+} from './commonUI.action';
