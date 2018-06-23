@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import EditProfile from './EditProfile';
+import ValidatedEditProfile from './EditProfile';
 
 const styles = (theme) => ({
   paper: {
@@ -33,7 +33,6 @@ export class UserDetailsModal extends Component {
   }
 
   closeEditModal = () => {
-    console.log('close');
     this.setState({ showEditModal: false }, () => console.log(this.state.showEditModal));
   }
 
@@ -59,7 +58,7 @@ export class UserDetailsModal extends Component {
           </div>
         </Modal>
         {this.state.showEditModal &&
-          <EditProfile
+          <ValidatedEditProfile
             open={this.state.showEditModal}
             onClose={this.closeEditModal}
             className={classes.modalDetail}

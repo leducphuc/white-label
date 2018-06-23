@@ -14,7 +14,6 @@ export class FilterInput extends React.Component {
   }
 
   onClear = () => {
-    console.log(this.fv.value);
     this.fv.value = '';
   }
 
