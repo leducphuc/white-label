@@ -42,6 +42,7 @@ export class UserDetailsModal extends Component {
     return (
       <div className="detail-modal-container">
         <Modal
+          disableBackdropClick
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
           open={open}
@@ -55,6 +56,7 @@ export class UserDetailsModal extends Component {
             <Typography variant="subheading" id="simple-modal-description">
             </Typography>
             <Button onClick={this.openEditModal}>Modify</Button>
+            <Button onClick={onClose}>Close</Button>
           </div>
         </Modal>
         {this.state.showEditModal &&

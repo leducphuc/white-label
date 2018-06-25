@@ -26,7 +26,6 @@ export class FilterInput extends React.Component {
       <TextField
         label={label}
         type="search"
-        margin="normal"
         inputRef={el => this.fv = el}
         onBlur={(e) => onBlur(fieldName, e.target.value)}
         onKeyUp={(e) => onKeyUp(fieldName, e)}

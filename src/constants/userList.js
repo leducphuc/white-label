@@ -16,6 +16,7 @@ export const userListData = [
     value: 'fullName',
     searchField: true,
     showInTable: true,
+    editable: true,
   },
   {
     title: 'User Name',
@@ -27,11 +28,13 @@ export const userListData = [
     title: 'Phone Number',
     value: 'telephone',
     showInTable: true,
+    editable: true,
   },
   {
     title: 'Email',
     value: 'email',
     searchField: true,
+    editable: true,
   },
   {
     title: 'Active Status',
@@ -46,6 +49,7 @@ export const userListData = [
   {
     title: 'Birthday',
     value: 'dob',
+    // editable: true,
   },
   {
     title: 'Sex',
@@ -57,11 +61,13 @@ export const userListData = [
   },
   {
     title: 'Current Residence',
-    value: 'address'
+    value: 'address',
+    editable: true,
   },
   {
     title: 'Partner Account',
     value: 'partnerAccount',
+    editable: true,
   }
 ];
 
